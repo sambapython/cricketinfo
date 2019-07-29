@@ -1,0 +1,27 @@
+{% extends 'info/home.html'%}
+{% block container%}
+	<h2><a href="/create_country">create country</a></h2>
+	<h3>Countries</h3>
+	<table border=2>
+		<tr>
+			<th>name</th>
+			<th>flag</th>
+			<th>shortname</th>
+			<th>description</th>
+			<th>Operations</th>
+		</tr>
+		{% for cnt in countries%}
+		<tr>
+			<td>{{ cnt.name }}</td>
+			<td><img src="/media/{{ cnt.flag }}" width="50" height="50"></td>
+			<td>{{ cnt.shortname }}</td>
+			<td>{{ cnt.description }}</td>
+			<td>
+				<a href="/update_country/{{cnt.id}}">UPDATE</a>!!
+				<a href="/delete_country/{{cnt.id}}">DELETE</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+	</table>
+{% endblock %}
